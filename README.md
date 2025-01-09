@@ -6,4 +6,4 @@
 - OpenStreerMap
 ## 使用ライブラリ
 - Leaflet
-- jquery
+- jQuery
