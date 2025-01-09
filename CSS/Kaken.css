@@ -1,0 +1,69 @@
+
+body{
+    font-size: 30px;
+    text-align: center;
+}
+h1{
+    font-size : 1em;
+    margin : 15px;
+    border-bottom: 1px solid #000;
+}
+h2{
+    font-size: 0.8em;
+}
+
+.main{
+    font-size: 0.5em;
+}
+
+.input{
+    float: left;
+    width: 600px;
+    background-color: antiquewhite;
+}
+
+.resluts{
+    float: left;
+    width: 600px;
+    background-color: #E1E1E1;
+}
+
+
+/*矢印*/
+.smoke{
+    background-color: #fff;
+    border: solid 10px #E1E1E1;
+}
+
+#allow {
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+    line-height: 1;
+    position: relative;
+    width: 2px;
+    height: 0px;    /*jsで制御*/
+    background: currentColor;
+}
+
+
+/*矢印の頭の部分*/
+#allow::before {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border: 2px solid currentColor;
+    border-left: 0;
+    border-bottom: 0;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+    position: absolute;
+    top: -0.05em;
+    right: 50%;
+    box-sizing: border-box;
+}
+
+/*地図*/
+#map{
+    text-align: center;
+}
