@@ -1,90 +1,98 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progate</title>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-</head>
-<body>
-  <header>
-    <div class="container">
-      <div class="header-left">
-        <img class="logo" src="https://prog-8.com/images/html/advanced/main_logo.png">
-      </div>
-      <span class="fa fa-bars menu-icon"></span>
-      <div class="header-right">
-        <a href="#">レッスン</a>
-        <a href="#">新規登録</a>
-        <a href="#" class="login">ログイン</a>
-      </div>
-    </div>
-  </header>
-  <div class="top-wrapper">
-    <div class="container">
-      <h1>LEARN TO CODE.<br>LEARN TO BE CREATIVE.</h1>
-      <p>Progateはオンラインプログラミング学習サービスです。<br>初心者にもやさしいスライドとレッスンで、ウェブサービスを作りながらプログラミングを学んでいきましょう。</p>
-      <div class="btn-wrapper">
-        <a href="#" class="btn signup">新規登録はこちら</a>
-        <p>or</p>
-        <a href="#" class="btn facebook"><span class="fa fa-facebook"></span>Facebookで登録</a>
-        <a href="#" class="btn twitter"><span class="fa fa-twitter"></span>Twitterで登録</a>
-      </div>
-    </div>
-  </div>
-  <div class="lesson-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>Learn Where to Get Started!</h2>
-      </div>
-      <div class="lessons">
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/html.png">
-            <p>HTML & CSS</p>
-          </div>
-          <p class="text-contents">ウェブページの作成に使用される言語です。HTMLとCSSを組み合わせることで、静的なページを作り上げることができます。</p>
+
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>野焼き補助</title>
+        <link rel="stylesheet" href="CSS/kaken3.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />   <!--Leafletライブラリのcss読み込み -->
+    </head>
+
+    <body>
+        <div class="input">
+            <h1>気象情報から野焼きの延焼危険性，煤煙が広がる方向を予測</h1>
+            <!--<p>本サイトはあくまでも試作です。<br>閾値等も雑に決めているため参考にしないでください。</p>-->
+           
+            <!--湿度がhumidity(number1),風力がwind(number2)-->
+            <h2>自動入力</h2>
+            <div class = "main">
+                <p>GPS等からの位置情報をもとに気象情報を入手します</p>
+                <p><input type="button" value="位置情報を入手" onclick="GPS()"></p>
+                
+                <!--
+                    <p id="decidewind"></p>
+                    <p id="decidehumidity"></p>
+                -->
+                
+            </div>
+
+            
+            <h2>手動入力</h2>
+            <div class ="main">
+                <p>現在の湿度<input type="number" max="100" min="0"  >%</p>
+                <p>現在の風速<input type="number" min="0" >m/s</p>
+                <p><b>風向を選択</b></p>
+                <p>
+                    <input type="radio" name="direction" value="north"><label for="north">北</label>
+                    <input type="radio" name="direction" value="northeast"><label for="northeast">北東</label>
+                    <input type="radio" name="direction" value="east"><label for="east">東</label>
+                    <input type="radio" name="direction" value="southeast"><label for="southeast">南東</label>
+                    <input type="radio" name="direction" value="south"><label for="south">南</label>
+                    <input type="radio" name="direction" value="southweast"><label for="southweast">南西</label>
+                    <input type="radio" name="direction" value="west"><label for="west">西</label>
+                    <input type="radio" name="direction" value="northwest"><label for="northwest">北西</label>
+                </p>
+                <p><input type="button" value="実行" onclick="btnclick()"></p>
+    
+            </div>
+
         </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/jQuery.png">
-            <p>jQuery</p>
-          </div>
-          <p class="text-contents">素敵な動きを手軽に実装できるJavaScriptライブラリです。 アニメーション効果をつけたり、Ajax（エイジャックス）を使って外部ファイルを読み込んだりと色々なことができます。</p>
+        
+        <div class="resluts">
+            <h1>結果</h1>
+            <div class = "main">
+                <p>
+                    緯度：<span id="latitude"></span>度
+                    <br>経度：<span id="longitude"></span>度
+                    <br>湿度：<span id="humidity"></span>%
+                    <br>風速：<span id="windP"></span>m/s
+                    <br>風向：<span id="windD"></span>
+                    
+                </p>
+            </div>
+            <h2>延焼危険性の有無</h2>
+            <p id="alert" class = "main">
+            </p>
+            
+            <h2>煤煙が広がる方向の予測</h2>
+            <div class="main smoke">
+                <p>北</p>
+                <div id="allow"></div>
+                <p>南</p>
+                <p>矢印の向きは風が吹く方向を，矢印の大きさは風速を表しています<br>
+                風速1mあたり50pxです</p>
+                <center>
+                    <div id = "map"></div>
+                </center>
+            </div>
+            
         </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/ruby.png">
-            <p>Ruby</p>
-          </div>
-          <p class="text-contents">オープンソースの動的なプログラミング言語で、 シンプルさと高い生産性を備えています。大きなWebアプリケーションから小さな日用ツールまで、さまざまなソフトウェアを作ることができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/php.png">
-            <p>PHP</p>
-          </div>
-          <p class="text-contents">HTMLだけではページの内容を変えることはできません。PHPはHTMLにプログラムを埋め込み、それを可能にします。</p>
-        </div>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-  <div class="message-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>さぁ、あなたもProgateでプログラミングを学んでみませんか?</h2>
-        <h3>Let's learn to code, learn to be creative!</h3>
-      </div>
-      <span class="btn message">さっそく開発する</span>
-    </div>
-  </div>
-  <footer>
-    <div class="container">
-      <img src="https://prog-8.com/images/html/advanced/footer_logo.png">
-      <p>Learn to Code, Learn to be Creative.</p>
-    </div>
-  </footer>
-</body>
+        
+
+
+
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+        <!--Leafletライブラリのjs読み込み -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <!--jQueryライブラリの読み込み-->
+        <script src="./js/apperMap.js"></script> <!-- 地図を表示する関数の読み込み　-->
+        <script src ="./js/kaken.js"></script> <!--メインの処理 -->
+        
+        
+
+        <noscript>
+            <p>javascriptが無効になっている可能性があります<br>有効にしてください</p>
+        </noscript>
+    </body>
+
 </html>
