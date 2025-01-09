@@ -23,7 +23,7 @@ h2{
 }
 
 .resluts{
-    float: right;    /*横に置く*/
+    float: left;    /*横に置く*/
     width: 600px;
     background-color: #E1E1E1;
 }
