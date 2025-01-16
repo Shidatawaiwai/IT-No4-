@@ -16,19 +16,6 @@ h2{
     font-size: 0.5em;
 }
 
-.input{
-    float: left;
-    width: 600px;
-    background-color: antiquewhite;
-}
-
-.resluts{
-    float: left;    /*横に置く*/
-    width: 600px;
-    background-color: #E1E1E1;
-}
-
-
 /*矢印*/
 .smoke{
     background-color: #fff;
@@ -66,4 +53,38 @@ h2{
 /*地図*/
 #map{
     text-align: center;
+}
+
+
+
+
+
+/*PC用*/
+@media(min-width:601px){
+    .input{
+        float: left;
+        width: 600px;
+        background-color: antiquewhite;
+    }
+    .resluts{
+        float: left;    /*横に置く*/
+        width: 600px;
+        background-color: #E1E1E1;
+    }
+    
+}
+
+
+/*Mobile用*/
+@media(max-width:600px)  {
+    .input{
+        margin: 0 auto;
+        width: 90%;
+        background-color: antiquewhite;
+    }
+    .resluts{
+        margin: 0 auto;
+        width: 90%;
+        background-color: #E1E1E1;
+    }
 }
