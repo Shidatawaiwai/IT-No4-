@@ -78,7 +78,7 @@ h2{
 /*Mobile用*/
 @media(max-width:600px)  {
     .h1{
-        font-size:0.8em;
+        font-size:0.5em;
     }
     .input{
         margin: 0 auto;
