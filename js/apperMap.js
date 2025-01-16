@@ -9,7 +9,7 @@ let apperMap = function(lat,lon,id){
     if(win_width>600){
         map_len = "500px";
     }else{
-        map_len = `${win_width*0.85}px`;    //画面幅の85%
+        map_len = `${win_width*0.98-30}px`;    //画面幅の85%
     }
     selector.width(map_len);
     selector.height(map_len);
