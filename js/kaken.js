@@ -3,7 +3,7 @@
 var output_ele = document.getElementsByTagName("span");
 
 
-alert("試作段階です。信用しないでください。");
+alert("HTML,CSSを絶賛編集中です．\n一時的に表示が崩れている可能性があります．");
 {
     //手動
     var btnclick =  function (){
