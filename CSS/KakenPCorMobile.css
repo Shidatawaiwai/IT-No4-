@@ -79,12 +79,12 @@ h2{
 @media(max-width:600px)  {
     .input{
         margin: 0 auto;
-        width: 90%;
+        width: 98%;
         background-color: antiquewhite;
     }
     .resluts{
         margin: 0 auto;
-        width: 90%;
+        width: 98%;
         background-color: #E1E1E1;
     }
 }
