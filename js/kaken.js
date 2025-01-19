@@ -1,5 +1,6 @@
 
 
+
 var output_ele = document.getElementsByTagName("span");
 
 
@@ -57,47 +58,12 @@ alert("HTML,CSSを絶賛編集中です．\n一時的に表示が崩れている
 
     function errorCall(error){
         //エラー表示と諸々の表示のリセット
+        alert("位置情報が入手できませんでした");
         for(let i=0;i<output_ele.length;i++){
             output_ele[i].innerHTML = "error";
         }
         
     }
-}
-
-var CallApi = async function(latitude,longitude){
-    //succes()内で呼び出される関数
-    
-    //地図を表示
-    apperMap(latitude, longitude,"map");//"map"は地図を表示するセレクタ
-    const Apikey = "cb4f0786051c1ef05a15bfdf0f84869a";
-    var resp = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${Apikey}`); //APIの呼び出し
-    var data = await resp.json();
-    console.log(data);
-
-    //風向の名前付け
-    let deg_value = data.wind.deg/45;
-    let degName;
-    if(deg_value <= 1 || deg_value > 7){
-        degName = "north";
-    }else if(deg_value <= 3){
-        degName = "east";
-    }else if(deg_value <=5){
-        degName = "south";
-    }else if(deg_value <= 7){
-        degName = "west";
-    }
-
-
-
-    var dataObj = {
-        humidity : data.main.humidity,
-        windP : data.wind.speed,
-        windD_name : degName,
-        windD_deg : data.wind.deg,
-        //諸々のデータをオブジェクトにまとめる
-    };
-    
-    resluts(dataObj);
 }
 
 var resluts = function(data){
@@ -136,6 +102,11 @@ var resluts = function(data){
     allow.style.transform = `rotate(${data.windD_deg + 180}deg)`;
     
 }
+
+
+
+
+
 
 
 
