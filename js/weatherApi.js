@@ -3,11 +3,12 @@ var CallApi = async function(latitude,longitude){
     
     //地図を表示
     apperMap(latitude, longitude,"map","smoke");//"map"は地図を表示するセレクタ
+    /*
     let jKey = fetch("https://shidatawaiwai.github.io/IT-No4-/js/ApiKey.json");
     let Key = jKey.json();
-    
+    */
     const Apikey = "cb4f0786051c1ef05a15bfdf0f84869a";
-    var resp = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${Key.weather}`); //APIの呼び出し
+    var resp = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${ApiKey}`); //APIの呼び出し
     var data = await resp.json();
     console.log(data);
 
