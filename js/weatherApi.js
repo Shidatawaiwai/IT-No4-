@@ -4,7 +4,7 @@ var CallApi = async function(latitude,longitude){
     //地図を表示
     apperMap(latitude, longitude,"map","smoke");//"map"は地図を表示するセレクタ
     
-    let jKey =await fetch("https://shidatawaiwai.github.io/IT-No4-/js/Data.json");
+    let jKey =await fetch("./Data.json");
     let Key = await jKey.json();
     
     /*const Apikey = "cb4f0786051c1ef05a15bfdf0f84869a";*/
