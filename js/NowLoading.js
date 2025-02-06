@@ -8,10 +8,10 @@ let Loading = function(id){
      "position": "absolute",
      "top": "0",
      "left": "0",
-     "opacity": "0.8"
+     "opacity": "0.8",
 
      "color": "#FFF",
-     "text-align": "center",
+     "text-align": "center"
 
      });
      selector.html('Now Loading...<div style="font-size: 15px;">終わったら画面下部または右部にある結果欄をご覧ください</div>');
