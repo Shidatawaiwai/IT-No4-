@@ -48,7 +48,6 @@ alert("HTML,CSSを絶賛編集中です\n一時的に表示が崩れている可
     }
     
     var succses = async function(position){
-        
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
 
@@ -71,7 +70,7 @@ alert("HTML,CSSを絶賛編集中です\n一時的に表示が崩れている可
         for(let i=0;i<output_ele.length;i++){
             output_ele[i].innerHTML = "error";
         }
-        
+        DeleteLoading("Loading");
     }
 }
 

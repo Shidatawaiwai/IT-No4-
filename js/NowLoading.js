@@ -2,8 +2,6 @@ let Loading = function(id){
     let selector = $(`#${id}`) ;
     selector.css({
      "background-color": "hsl(214, 100%, 50%)",
-     "color": "#FFF",
-     "text-align": "center",
      "height": "100%",
      "width": "100%",
      "z-index": "100",
@@ -11,8 +9,12 @@ let Loading = function(id){
      "top": "0",
      "left": "0",
      "opacity": "0.8"
+
+     "color": "#FFF",
+     "text-align": "center",
+
      });
-     selector.html("Now Loading...<br>終わったら画面下部または右部にある結果欄をご覧ください");
+     selector.html("Now Loading...<div style="font-size: 15px;">終わったら画面下部または右部にある結果欄をご覧ください</div>");
  
  }
  
