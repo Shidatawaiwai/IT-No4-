@@ -56,7 +56,9 @@ alert("HTML,CSSを絶賛編集中です\n一時的に表示が崩れている可
         let Weather_data = CallApi(latitude,longitude);    //緯度経度を引数にAPIを呼び出す
         //地図を表示
         apperMap(latitude, longitude,"map","smoke");//"map"は地図を表示するセレクタ
+        console.log(Weather_data);
         resluts(Weather_data);
+
         DeleteLoading("Loading");  
 
     }
