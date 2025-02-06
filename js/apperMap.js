@@ -7,9 +7,9 @@ let apperMap = function(lat,lon,map_id,map_parent_class){
     let parent = $(`.${map_parent_class}`);
     let selector = $(`#${map_id}`);
 
-    if(selector){
-        selector.remove();
-        selector = null;
+    if(map){
+        map.remove()
+        map = null;
     }
 
     let map_len = "500px";  //初期値
