@@ -53,9 +53,10 @@ alert("HTML,CSSを絶賛編集中です\n一時的に表示が崩れている可
         output_ele[0].innerHTML = latitude;
         output_ele[1].innerHTML = longitude;
         Loading("Loading"); //Loading画面を表示するApi
-        CallApi(latitude,longitude);    //緯度経度を引数にAPIを呼び出す
+        let Weather_data = CallApi(latitude,longitude);    //緯度経度を引数にAPIを呼び出す
         //地図を表示
         apperMap(latitude, longitude,"map","smoke");//"map"は地図を表示するセレクタ
+        resluts(Weather_data);
         DeleteLoading("Loading");  
 
     }

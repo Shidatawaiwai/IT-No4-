@@ -33,5 +33,5 @@ var CallApi = async function(latitude,longitude){
         //諸々のデータをオブジェクトにまとめる
     };
     
-    resluts(dataObj);
+    return dataObj;
 }
