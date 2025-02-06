@@ -47,12 +47,14 @@ alert("HTML,CSSを絶賛編集中です\n一時的に表示が崩れている可
     }
     
     var succses = async function(position){
+        Loading("Loading"); //Loading画面を表示する関数
+
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
 
         output_ele[0].innerHTML = latitude;
         output_ele[1].innerHTML = longitude;
-        Loading("Loading"); //Loading画面を表示するApi
+        
         let Weather_data = await CallApi(latitude,longitude);    //緯度経度を引数にAPIを呼び出す
         //地図を表示
         apperMap(latitude, longitude,"map","smoke");//"map"は地図を表示するセレクタ
