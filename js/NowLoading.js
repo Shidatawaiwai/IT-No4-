@@ -12,7 +12,7 @@ let Loading = function(id){
      "left": "0",
      "opacity": "0.8"
      });
-     selector.text("Now Loading...\n終わったら画面下部または右部にある結果欄をご覧ください");
+     selector.html("Now Loading...<br>終わったら画面下部または右部にある結果欄をご覧ください");
  
  }
  
