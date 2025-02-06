@@ -10,6 +10,8 @@
     </head>
 
     <body>
+        <!-- ローディング画面用要素 -->
+        <div id="Loading"></div>
         <div class="input">
             <h1>気象情報から野焼きの延焼危険性，煤煙が広がる方向を予測</h1>
             <!--<p>本サイトはあくまでも試作です。<br>閾値等も雑に決めているため参考にしないでください。</p>-->
@@ -87,6 +89,7 @@
         <!--Leafletライブラリのjs読み込み -->
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <!--jQueryライブラリの読み込み-->
+        <script src="./js/NowLoading.js"></script><!--NowLoadingする関数の読み込み-->
         <script src="./js/apperMap.js"></script> <!-- 地図を表示する関数の読み込み　-->
         <script src="./js/weatherApi.js"></script>  <!-- 気象Apiを呼び出す関数の読み込み　-->
         <script src ="./js/kaken.js"></script> <!--メインの処理 -->
