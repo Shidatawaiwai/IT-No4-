@@ -1,3 +1,5 @@
+let map = null;
+
 let apperMap = function(lat,lon,map_id,map_parent_class){
     
     //latitude:緯度;longitude:経度
@@ -22,7 +24,7 @@ let apperMap = function(lat,lon,map_id,map_parent_class){
     selector.height(map_len);
     
 
-    let map = L.map(map_id).setView([lat,lon],16);
+    map = L.map(map_id).setView([lat,lon],16);
     const accessUrl = "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png";
     const copyright = "© <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors";
 
