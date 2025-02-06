@@ -14,7 +14,7 @@ let Loading = function(id){
      "text-align": "center",
 
      });
-     selector.html("Now Loading...<div style="font-size: 15px;">終わったら画面下部または右部にある結果欄をご覧ください</div>");
+     selector.html('Now Loading...<div style="font-size: 15px;">終わったら画面下部または右部にある結果欄をご覧ください</div>');
  
  }
  
