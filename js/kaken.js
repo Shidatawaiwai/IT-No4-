@@ -41,14 +41,14 @@ alert("HTML,CSSを絶賛編集中です\n一時的に表示が崩れている可
 {
     var GPS = function(){
         //output.ele[0],[1]は緯度経度の出力用
+        Loading("Loading"); //Loading画面を表示する関数
         navigator.geolocation.getCurrentPosition(succses,errorCall);
         //位置情報を取得
         
     }
     
     var succses = async function(position){
-        Loading("Loading"); //Loading画面を表示する関数
-
+        
         var latitude = position.coords.latitude;
         var longitude = position.coords.longitude;
 
