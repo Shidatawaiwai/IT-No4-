@@ -6,7 +6,12 @@ let apperMap = function(lat,lon,map_id,map_parent_class){
     let win = $(window);  //画面幅
     let parent = $(`.${map_parent_class}`);
     let selector = $(`#${map_id}`);
-    selector.remove();
+
+    if(selector){
+        selector.remove();
+        selector = null;
+    }
+
     let map_len = "500px";  //初期値
     if(win.width()>600){
         map_len = "500px";
