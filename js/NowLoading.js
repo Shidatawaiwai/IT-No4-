@@ -4,7 +4,7 @@ let Loading = function(id){
      "background-color": "hsl(214, 100%, 50%)",
      "height": "100%",
      "width": "100%",
-     "z-index": "100",
+     "z-index": "2",
      "position": "fixed",
      "top" : "0px",
      "left" : "0px",
