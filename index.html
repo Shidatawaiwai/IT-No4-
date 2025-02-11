@@ -17,10 +17,10 @@
             <!--<p>本サイトはあくまでも試作です。<br>閾値等も雑に決めているため参考にしないでください。</p>-->
            
             <!--湿度がhumidity(number1),風力がwind(number2)-->
-            <h2>自動入力</h2>
+            <h2>気象情報を自動で入手</h2>
             <div class = "main">
                 <p>GPS等からの位置情報をもとに気象情報を入手します</p>
-                <p><input type="button" value="位置情報を入手" onclick="GPS()"></p>
+                <p><input type="button" value="実行" onclick="GPS()"></p>
                 
                 <!--
                     <p id="decidewind"></p>
@@ -30,9 +30,11 @@
             </div>
 
             
-            <h2>手動入力</h2>
+            <h2>気象情報を手動で入力</h2>
             <div class ="main">
-                <p>自動入力が使えない人向け</p>
+                <p>”気象情報を自動で入手”が使えない人向け
+                    <br>以下の欄に打ち込んでください
+                </p>
                 <p>現在の湿度<input type="number" max="100" min="0"  >%</p>
                 <p>現在の風速<input type="number" min="0" >m/s</p>
                 <p><b>風向を選択</b></p>
