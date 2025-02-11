@@ -60,6 +60,8 @@ alert("HTML,CSSを絶賛編集中です\n一時的に表示が崩れている可
         console.log(Weather_data);
         resluts(Weather_data);
 
+        
+
         DeleteLoading("Loading");  
 
     }
@@ -109,5 +111,9 @@ var resluts = function(data){
     allow.style.height = `${data.windP*50}px`;  //風速1mあたり50px
     allow.style.transform = `rotate(${data.windD_deg + 180}deg)`;
 
-    
+    $("html").animate({
+        scrollTop : $(".resluts").offset().top
+    });
+    //画面を結果欄まで自動遷移
+
 }
