@@ -1,6 +1,7 @@
 /*これはいと美しきCSSなり*/
 body{
     font-size: 30px;
+    font-family: sans-serif;
     text-align: center;
 }
 h1{
@@ -71,14 +72,17 @@ p{
     }
     
     .input{
-        float: left;
+        float: inline-start;
         width: 600px;
         background-color: antiquewhite;
     }
     .resluts{
-        float: left;    /*横に置く*/
+        float: inline-start;    /*横に置く*/
         width: 600px;
         background-color: #E1E1E1;
+    }
+    #ankert{
+        clear: left;
     }
     
 }
