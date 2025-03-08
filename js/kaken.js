@@ -3,15 +3,28 @@
 
 var output_ele = document.getElementsByTagName("span");
 
+//手動入力欄の表示非表示
+//import manualAppearDisappear from "./Interface/manual";
+let instance1 = new manualAppearDisappear("manual","manualBtn");
+let selectorObj = instance1.getSelector();
+instance1.manualDisappear(selectorObj);
+console.log(instance1.getSelector().htmlText);
 
-alert("HTML,CSSを絶賛編集中です\n一時的に表示が崩れている可能性があります");
+let btnManual = function(){
+    if(selectorObj.btnSelector.val() == "非表示"){
+        instance1.manualDisappear(selectorObj);
+    }else{
+        instance1.manualAppear(selectorObj);
+    }
+}
+  
 
 {
     //手動
     var btnclick =  function (){
         var input_ele = document.getElementsByTagName("input");
-        let number1 = parseFloat(input_ele[1].value); //サイトに入力された値の入手
-        let number2 = parseFloat(input_ele[2].value);
+        let number1 = parseFloat(input_ele[2].value); //サイトに入力された値の入手
+        let number2 = parseFloat(input_ele[3].value);
         let windD_name,windD_deg;
 
         //radioボタンの値の入手for度数法に変換

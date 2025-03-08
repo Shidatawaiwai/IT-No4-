@@ -30,15 +30,14 @@
             </div>
 
             
-            <h2>気象情報を手動で入力</h2>
-            <div class ="main">
-                <p>”気象情報を自動で入手”が使えない人向け
-                    <br>以下の欄に打ち込んでください
-                </p>
-                <p>現在の湿度<input type="number" max="100" min="0"  >%</p>
-                <p>現在の風速<input type="number" min="0" >m/s</p>
-                <p><b>風向を選択</b></p>
-                <p>
+            <p>”気象情報を自動で入手”が使えない場合↓<br>気象情報を手動で入力<input type="button" value="展開" onclick="btnManual()" id="manualBtn"></p>
+            <div id="manual">
+                <p>以下の欄に打ち込んでください
+                <br>
+                現在の湿度<input type="number" max="100" min="0"  >%<br>
+                現在の風速<input type="number" min="0" >m/s<br>
+                <b>風向を選択</b><br>
+                
                     <input type="radio" name="direction" value="north"><label for="north">北</label>
                     <input type="radio" name="direction" value="northeast"><label for="northeast">北東</label>
                     <input type="radio" name="direction" value="east"><label for="east">東</label>
@@ -93,7 +92,8 @@
         <!--Leafletライブラリのjs読み込み -->
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <!--jQueryライブラリの読み込み-->
-        <script src="./js/NowLoading.js"></script><!--NowLoadingする関数の読み込み-->
+        <script src="./js/Interface/NowLoading.js"></script><!--NowLoadingする関数の読み込み-->
+        <script src="./js/Interface/manual.js"></script><!--手動入力部の表示非表示-->
         <script src="./js/apperMap.js"></script> <!-- 地図を表示する関数の読み込み　-->
         <script src="./js/weatherApi.js"></script>  <!-- 気象Apiを呼び出す関数の読み込み　-->
         <script src ="./js/kaken.js"></script> <!--メインの処理 -->
