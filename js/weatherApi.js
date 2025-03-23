@@ -1,12 +1,8 @@
-var CallApi = async function(latitude,longitude){
+var CallApi = async function(latitude,longitude,key){
     //succes()内で呼び出される関数
-    
-    let jKey =await fetch(" https://shidatawaiwai.github.io/IT-No4-/js/Data.json");
-    let Key = await jKey.json();
-    
     /*const Apikey = "cb4f0786051c1ef05a15bfdf0f84869a";*/
     
-    var resp = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${Key.weather}`); //APIの呼び出し
+    var resp = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`); //APIの呼び出し
     var data = await resp.json();
     console.log(data);
 

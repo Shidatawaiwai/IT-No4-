@@ -30,9 +30,10 @@
             </div>
 
             
-            <p>”気象情報を自動で入手”が使えない場合↓<br>気象情報を手動で入力<input type="button" value="展開" onclick="btnManual()" id="manualBtn"></p>
+            <p>位置情報を入手できない場合↓<br>地図から現在位置を選択<input type="button" onclick="btnManual()" id="manualBtn"></p>
             <div id="manual">
-                <p>以下の欄に打ち込んでください
+                <p>下の地図から現在位置をタップしてボタンを押してください</p>
+                <!--<p>以下の欄に打ち込んでください
                 <br>
                 現在の湿度<input type="number" max="100" min="0"  >%<br>
                 現在の風速<input type="number" min="0" >m/s<br>
@@ -47,6 +48,8 @@
                     <input type="radio" name="direction" value="west"><label for="west">西</label>
                     <input type="radio" name="direction" value="northwest"><label for="northwest">北西</label>
                 </p>
+            -->
+                <div id="inputMap"></div> 
                 <p><input type="button" value="実行" onclick="btnclick()"></p>
     
             </div>
@@ -96,7 +99,7 @@
         <script src="./js/Interface/manual.js"></script><!--手動入力部の表示非表示-->
         <script src="./js/apperMap.js"></script> <!-- 地図を表示する関数の読み込み　-->
         <script src="./js/weatherApi.js"></script>  <!-- 気象Apiを呼び出す関数の読み込み　-->
-        <script src ="./js/kaken.js"></script> <!--メインの処理 -->
+        <script src ="./js/main.js"></script> <!--メインの処理 -->
         
         
 

@@ -1,12 +1,12 @@
 let map = null;
 
-let apperMap = function(lat,lon,map_id,map_parent_class){
+let apperMap = function(lat,lon,map_id,map_parent){
     
     //latitude:緯度;longitude:経度
     
     //地図を表示するスペースを確保
     let win = $(window);  //画面幅
-    let parent = $(`.${map_parent_class}`);
+    let parent = $(map_parent);
     let selector = $(`#${map_id}`);
 
     if(map){
