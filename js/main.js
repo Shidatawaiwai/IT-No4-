@@ -1,11 +1,11 @@
 
-alert("編集中です\n上手く動かないことがあります")
 
 var output_ele = document.getElementsByTagName("span");
 //jsonファイルからの読み込み
 let jsonData = 0;
 let inputMapInst;
 let reslutsMapInst;
+let MapPosition = null;
 window.onload = async function(){
     let jData =await fetch(" ./js/Data.json");
     jsonData = await jData.json();
@@ -24,11 +24,11 @@ let btnManual = function(){
     if(selectorObj.btnSelector.val() == "非表示"){
         instance1.manualDisappear(selectorObj);
     }else{
-        let position = null;
+        
         instance1.manualAppear(selectorObj);
         inputMapInst.buildMap(jsonData.location.lat,jsonData.location.lon);
         inputMapInst.map.on('click',function(e){
-            position = inputMapInst.getPosition(e);
+            MapPosition = inputMapInst.getPosition(e);
         });
         
         
@@ -37,7 +37,7 @@ let btnManual = function(){
 }
   
 let btnclicked = function(){
-    doSomething(position.lat,position.lng);
+    doSomething(MapPosition.lat,MapPosition.lng);
 }
 
 {
