@@ -4,14 +4,17 @@ alert("編集中です\n上手く動かないことがあります")
 var output_ele = document.getElementsByTagName("span");
 //jsonファイルからの読み込み
 let jsonData = 0;
+let inputMapInst;
+let reslutsMapInst;
 window.onload = async function(){
     let jData =await fetch(" ./js/Data.json");
     jsonData = await jData.json();
+    inputMapInst = new apperMap("inputMap","#manual",5);//第1引数は地図を表示するセレクタ
+    reslutsMapInst = new apperMap("map",".smoke",16);
 }
 
 
 //手動入力欄の表示非表示
-//import manualAppearDisappear from "./Interface/manual";
 let instance1 = new manualAppearDisappear("manual","manualBtn");
 let selectorObj = instance1.getSelector();
 instance1.manualDisappear(selectorObj);
@@ -21,43 +24,20 @@ let btnManual = function(){
     if(selectorObj.btnSelector.val() == "非表示"){
         instance1.manualDisappear(selectorObj);
     }else{
+        let position = null;
         instance1.manualAppear(selectorObj);
-        apperMap(jsonData.location.lat,jsonData.location.lon,"inputMap","#manual");
-       
+        inputMapInst.buildMap(jsonData.location.lat,jsonData.location.lon);
+        inputMapInst.map.on('click',function(e){
+            position = inputMapInst.getPosition(e);
+        });
+        
+        
+        
     }
 }
   
-
-{
-    //手動
-    var btnclick =  function (){
-        var input_ele = document.getElementsByTagName("input");
-        let number1 = parseFloat(input_ele[2].value); //サイトに入力された値の入手
-        let number2 = parseFloat(input_ele[3].value);
-        let windD_name,windD_deg;
-
-        //radioボタンの値の入手for度数法に変換
-        var radio_ele = document.getElementsByName("direction");
-        for(let i=0;i < radio_ele.length;i++){
-            if(radio_ele[i].checked == 1){
-                windD_name = radio_ele[i].value;
-                windD_deg = i * 45;
-            }
-        }
-
-        var dataObj ={
-            humidity : number1,
-            windP : number2,
-            windD_name : windD_name,
-            windD_deg : windD_deg,
-            
-            //諸々のデータをオブジェクトにまとめる
-        };
-        
-        resluts(dataObj);    //オブジェクトを引数に指定して関数を呼び出す
-    } 
-
-    /*閾値：湿度30％、風速10m/s（要変更）*/
+let btnclicked = function(){
+    doSomething(position.lat,position.lng);
 }
 
 {
@@ -69,23 +49,11 @@ let btnManual = function(){
         
     }
     
-    var succses = async function(position){
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-
-        output_ele[0].innerHTML = latitude;
-        output_ele[1].innerHTML = longitude;
-        
-        let Weather_data = await CallApi(latitude,longitude,jsonData.weather);    //緯度経度を引数にAPIを呼び出す
-        //地図を表示
-        apperMap(latitude, longitude,"map",".smoke");//"map"は地図を表示するセレクタ
-        console.log(Weather_data);
-        resluts(Weather_data);
-
-        
-
+    var succses = function(position){
+        var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+        doSomething(lat,lon);
         DeleteLoading("Loading");  
-
     }
 
     function errorCall(error){
@@ -96,6 +64,22 @@ let btnManual = function(){
         }
         DeleteLoading("Loading");
     }
+}
+
+let doSomething = async function(lat,lon){
+
+    output_ele[0].innerHTML = lat;
+    output_ele[1].innerHTML = lon;
+    
+    let Weather_data = await CallApi(lat,lon,jsonData.weather);    //緯度経度を引数にAPIを呼び出す
+    //地図を表示
+    reslutsMapInst.mapDisappear();
+    reslutsMapInst.buildMap(lat,lon);
+    reslutsMapInst.makePin(lat,lon);
+    console.log(Weather_data);
+    resluts(Weather_data);
+
+    
 }
 
 var resluts = function(data){
