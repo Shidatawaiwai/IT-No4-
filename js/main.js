@@ -110,7 +110,7 @@ var resluts = function(data){
         alert.innerHTML += "風速が大きいため野焼きには向いていません";
     }
     if(data.humidity > divideValue.humidity && data.windP < divideValue.windP){
-        alert.innerHTML += "問題なし";
+        alert.innerHTML += "危険性あり<br>";
     }
 
     //GUI上に矢印を表示
