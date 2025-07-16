@@ -46,9 +46,13 @@ p{
 }
 
 .resluts .important{
-    font-size: 1em;
+    font-size: 0.6em;
     font-weight: bold;
-    text-align: left;
+    background-color: rgb(2, 11, 53);
+    color: #ffffff;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 15px;
 }
 
 
