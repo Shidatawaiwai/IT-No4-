@@ -13,8 +13,7 @@
         <!-- ローディング画面用要素 -->
         <div id="Loading"></div>
         <div class="input">
-            <h1>気象情報から野焼きの延焼危険性，煤煙が広がる方向を予測</h1>
-            <!--<p>本サイトはあくまでも試作です。<br>閾値等も雑に決めているため参考にしないでください。</p>-->
+            <h1>気象情報から野外焼却の延焼危険性，煤煙が広がる方向を予測</h1>
            
             <!--湿度がhumidity(number1),風力がwind(number2)-->
             <h2>気象情報を自動で入手</h2>
@@ -30,9 +29,10 @@
             </div>
 
             
-            <p>位置情報を入手できない場合↓<br>地図から現在位置を選択<input type="button" onclick="btnManual()" id="manualBtn"></p>
+            <p>位置情報を入手できない場合，現在位置以外で野外焼却を行う場合↓<br>地図から位置を選択<input type="button" onclick="btnManual()" id="manualBtn"></p>
             <div id="manual">
-                <p>下の地図から現在位置をタップしてボタンを押してください</p>
+                <p>下の地図から現在位置をタップして直下にある実行ボタンを押してください</p>
+                <p><input type="button" value="実行" onclick="btnclicked()"></p>
                 <!--<p>以下の欄に打ち込んでください
                 <br>
                 現在の湿度<input type="number" max="100" min="0"  >%<br>
@@ -50,7 +50,7 @@
                 </p>
             -->
                 <div id="inputMap"></div> 
-                <p><input type="button" value="実行" onclick="btnclicked()"></p>
+                
     
             </div>
 

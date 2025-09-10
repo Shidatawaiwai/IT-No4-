@@ -22,7 +22,7 @@ p{
     border: solid 10px antiquewhite;
 }
 
-.main input{
+input[value="実行"]{
     position: relative;
     display: flex;
     justify-content: space-around;
