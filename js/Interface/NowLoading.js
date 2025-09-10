@@ -17,7 +17,7 @@ let Loading = function(id){
 
      });
      selector.html('Now Loading...<div style="font-size: 15px;">読み込みが終了したら結果欄をご覧ください</div>');
-     console.log("ぬ");
+     
  }
  
  let DeleteLoading = function(id){
