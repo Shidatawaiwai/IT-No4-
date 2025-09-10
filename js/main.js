@@ -37,7 +37,9 @@ let btnManual = function(){
 }
   
 let btnclicked = function(){
+    Loading("Loading");
     doSomething(MapPosition.lat,MapPosition.lng);
+    DeleteLoading("Loading");
 }
 
 {
@@ -79,7 +81,6 @@ let doSomething = async function(lat,lon){
     console.log(Weather_data);
     resluts(Weather_data);
 
-    
 }
 
 var resluts = function(data){
@@ -104,10 +105,10 @@ var resluts = function(data){
     
 
     if(data.humidity <= divideValue.humidity){
-        alert.innerHTML += "湿度が低いため野焼きには向いていません<br>";
+        alert.innerHTML += "湿度が低いため野外焼却には向いていません<br>";
     }
     if(data.windP >= divideValue.windP){
-        alert.innerHTML += "風速が大きいため野焼きには向いていません";
+        alert.innerHTML += "風速が大きいため野外焼却には向いていません";
     }
     if(data.humidity > divideValue.humidity && data.windP < divideValue.windP){
         alert.innerHTML += "危険性なし<br>";
